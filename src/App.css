@@ -85,27 +85,45 @@ p {
   opacity: 0.9;
 }
 #home,
-#works,
 #about,
-#contact,
-#tools {
+#tools,
+#works,
+#contact {
   width: 100vw;
   min-height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 #home {
   align-items: flex-end;
   background-color: #1a1a40;
   min-height: 100vh;
   color: white;
 }
+
 #about {
   background-color: #242456;
 }
+
 #works {
   background-color: #2a547e;
+  position: relative;
+  overflow: hidden;
+}
+
+#contact {
+  background-color: #fa58b6;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+#tools {
+  min-height: 90vh;
+  background: white;
+  color: black;
   position: relative;
   overflow: hidden;
 }
@@ -377,6 +395,7 @@ p {
 
 .contactEmail:hover {
   text-decoration: underline;
+  color: #0f5298;
 }
 .contactEmail:hover::after {
   opacity: 1;
@@ -538,7 +557,8 @@ p {
     0 0 0 1px rgba(97, 219, 251, 0.3);
 }
 .contactSocials a:hover #icon {
-  scale: 1.5;
+  scale: 1.1;
+  transform: unset;
 }
 #tools {
   min-height: 90vh;
@@ -1126,31 +1146,41 @@ nav #phoneIcon {
 .portfolioTitle::before {
   content: "";
   position: absolute;
-  width: clamp(190px, 30vw, 360px);
-  height: clamp(190px, 30vw, 360px);
+  width: clamp(250px, 35vw, 500px);
+  height: clamp(250px, 35vw, 500px);
   border-radius: 50%;
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   background:
     radial-gradient(
-      circle at 30% 30%,
-      rgba(255, 255, 255, 0.98) 0%,
-      rgba(255, 255, 255, 0.8) 35%,
-      rgba(235, 240, 255, 0.5) 65%,
-      rgba(255, 255, 255, 0.16) 100%
+      circle at 25% 25%,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.95) 20%,
+      rgba(250, 252, 255, 0.85) 40%,
+      rgba(245, 248, 255, 0.7) 60%,
+      rgba(240, 244, 255, 0.4) 80%,
+      rgba(235, 240, 255, 0.2) 100%
     ),
     radial-gradient(
-      circle at 70% 80%,
-      rgba(26, 26, 64, 0.16) 0%,
-      transparent 55%
+      circle at 75% 75%,
+      rgba(220, 230, 245, 0.3) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 15% 85%,
+      rgba(200, 215, 235, 0.2) 0%,
+      transparent 30%
     );
   box-shadow:
-    0 0 50px rgba(255, 255, 255, 0.35),
-    0 0 110px rgba(97, 219, 251, 0.22),
-    0 0 140px rgba(250, 88, 182, 0.14);
-  filter: blur(0.2px);
-  opacity: 0.88;
+    0 0 80px rgba(255, 255, 255, 0.6),
+    0 0 120px rgba(255, 255, 255, 0.4),
+    0 0 160px rgba(97, 219, 251, 0.3),
+    0 0 200px rgba(250, 88, 182, 0.2),
+    inset -20px -20px 40px rgba(200, 215, 235, 0.3),
+    inset 20px 20px 40px rgba(255, 255, 255, 0.8);
+  filter: blur(0.1px) brightness(1.1);
+  opacity: 0.95;
   z-index: 0;
   pointer-events: none;
 }
@@ -1158,8 +1188,8 @@ nav #phoneIcon {
 .portfolioTitle::after {
   content: "";
   position: absolute;
-  width: clamp(190px, 30vw, 360px);
-  height: clamp(190px, 30vw, 360px);
+  width: clamp(250px, 50vw, 500px);
+  height: clamp(250px, 50vw, 500px);
   border-radius: 50%;
   top: 45%;
   left: 50%;
@@ -1167,30 +1197,45 @@ nav #phoneIcon {
   background:
     radial-gradient(
       circle at 35% 40%,
-      rgba(26, 26, 64, 0.26) 0 10px,
-      transparent 11px
+      rgba(180, 195, 220, 0.4) 0 12px,
+      rgba(160, 175, 200, 0.3) 12px 18px,
+      transparent 19px
     ),
     radial-gradient(
       circle at 60% 55%,
-      rgba(26, 26, 64, 0.22) 0 14px,
-      transparent 15px
+      rgba(170, 185, 210, 0.35) 0 15px,
+      rgba(150, 165, 190, 0.25) 15px 24px,
+      transparent 25px
     ),
     radial-gradient(
       circle at 50% 25%,
-      rgba(26, 26, 64, 0.18) 0 8px,
-      transparent 9px
+      rgba(190, 205, 225, 0.3) 0 9px,
+      rgba(170, 185, 205, 0.2) 9px 15px,
+      transparent 16px
     ),
     radial-gradient(
       circle at 75% 35%,
-      rgba(26, 26, 64, 0.16) 0 6px,
-      transparent 7px
+      rgba(165, 180, 200, 0.28) 0 8px,
+      rgba(145, 160, 180, 0.18) 8px 12px,
+      transparent 13px
     ),
     radial-gradient(
       circle at 30% 70%,
-      rgba(26, 26, 64, 0.18) 0 12px,
-      transparent 13px
+      rgba(175, 190, 210, 0.32) 0 14px,
+      rgba(155, 170, 190, 0.22) 14px 21px,
+      transparent 22px
+    ),
+    radial-gradient(
+      circle at 20% 50%,
+      rgba(160, 175, 195, 0.25) 0 6px,
+      transparent 7px
+    ),
+    radial-gradient(
+      circle at 80% 65%,
+      rgba(185, 200, 215, 0.22) 0 10px,
+      transparent 11px
     );
-  opacity: 0.72;
+  opacity: 0.65;
   mix-blend-mode: multiply;
   z-index: 1;
   pointer-events: none;

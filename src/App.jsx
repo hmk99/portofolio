@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Squash as Hamburger } from "hamburger-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import "./App.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -23,14 +25,24 @@ import { SiTailwindcss } from "react-icons/si";
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [full, setFull] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [scrollProgress, setScrollProgress] = useState(0);
-
+  const [full, setFull] = useState(false);
   const drawerRef = useRef(null);
   const closeBtnRef = useRef(null);
 
   const reduceMotion = useReducedMotion();
+
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 100,
+      delay: 0,
+    });
+  }, []);
 
   const particles = useMemo(() => {
     return Array.from({ length: 20 }, (_, i) => {
@@ -548,6 +560,7 @@ function App() {
           />
         </nav>
         <div className="homeMain">
+          {/*
           <div
             className="moon"
             style={{
@@ -616,6 +629,7 @@ function App() {
               }}
             ></div>
           </div>
+          */}
           <div className="heroContent">
             <div className="textContainer">
               <motion.div className="nameContainer">
@@ -715,7 +729,7 @@ function App() {
 
       <>
         <div id="about">
-          <div className="aboutMain">
+          <div className="aboutMain" data-aos="fade-up" data-aos-duration="800">
             {
               <>
                 <motion.div className="aboutHeader">
@@ -1036,7 +1050,7 @@ function App() {
         </div>
 
         <div id="tools">
-          <div className="toolsMain">
+          <div className="toolsMain" data-aos="fade-up" data-aos-duration="800">
             {
               <>
                 <div className="toolsHeader">
@@ -1236,7 +1250,11 @@ function App() {
         </div>
 
         <motion.div id="works">
-          <motion.div className="worksMain">
+          <motion.div
+            className="worksMain"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
             {
               <>
                 <div className="worksHeader">
@@ -1277,7 +1295,11 @@ function App() {
         </motion.div>
 
         <div id="contact" style={{ position: "relative" }}>
-          <div className="contactMain">
+          <div
+            className="contactMain"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
             <div className="contactHeader">
               <h1 id="title" className="contactTitle">
                 Contact ME
